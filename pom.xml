@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>by.marketcatalog</groupId>
+    <artifactId>marketcatalog-boot</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>data</module>
+        <module>security</module>
+        <module>boot</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
+        <jwt.version>0.9.1</jwt.version>
+        <lombok.version>1.18.12</lombok.version>
+        <jdbc.oracle.version>19.3.0.0</jdbc.oracle.version>
+        <jdbc.postgresql.version>42.2.9</jdbc.postgresql.version>
+        <jsonapi-server.version>1.0.21</jsonapi-server.version>
+        <elide.version>4.6.4</elide.version>
+        <graphql.version>0.10.1</graphql.version>
+        <javax.interceptor-api.version>1.2.2</javax.interceptor-api.version>
+        <spring.security.jwt.version>1.0.10.RELEASE</spring.security.jwt.version>
+        <spring.cloud.version>Hoxton.SR4</spring.cloud.version>
+        <spring.sleuth.version>2.1.0.RELEASE</spring.sleuth.version>
+        <spring.integration.version>5.2.6.RELEASE</spring.integration.version>
+        <spring.integration.kafka.version>3.2.1.RELEASE</spring.integration.kafka.version>
+        <spring.kafka.version>2.3.8.RELEASE</spring.kafka.version>
+        <kafka.avro.version>5.2.2</kafka.avro.version>
+        <zookeeper.version>3.4.13</zookeeper.version>
+        <avro.version>1.9.2</avro.version>
+        <spring.security.messaging.version>5.1.3.RELEASE</spring.security.messaging.version>
+        <liquibase.version>4.0.0</liquibase.version>
+        <elasticsearch.version>7.4.0</elasticsearch.version>
+        <elastic-apm.version>1.17.0</elastic-apm.version>
+        <flowable.version>6.5.0</flowable.version>
+        <jaxb2-basics.version>0.12.0</jaxb2-basics.version>
+        <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
+        <projectreactor.version>3.3.5.RELEASE</projectreactor.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.data</groupId>
+                        <artifactId>spring-data-elasticsearch</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+                <version>${liquibase.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquibase.ext</groupId>
+                <artifactId>liquibase-oracle</artifactId>
+                <version>${liquibase.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
